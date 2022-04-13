@@ -1,8 +1,8 @@
 {
     "API_PSMD":  {
         "AppName":  "PSMD",
-        "TenantID": "",
-        "ClientID":  "",
+        "TenantId": "",
+        "ClientId":  "",
         "ClientSecret":  ""
     }
 }

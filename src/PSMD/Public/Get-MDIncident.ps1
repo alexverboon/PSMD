@@ -39,7 +39,7 @@ Function Get-MDIncident{
             $Hours = 4
         }
         $Severity = "Low"
-        $token = Get-PSMDAPIToken
+        $token = Get-PSMDAPIToken -API "MD"
 
         $dateTime = (Get-Date).ToUniversalTime().AddHours(-72).ToString("o")
         $url = "https://api.security.microsoft.com/api/incidents?$filter=lastUpdateTime+ge+$dateTime"
@@ -53,12 +53,13 @@ Function Get-MDIncident{
         # Send the request and get the results.
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         $response = Invoke-WebRequest -Method Get -Uri $url -Headers $headers -ErrorAction Stop
-
-        # Extract the incidents from the results.
-        $incidents =  ($response | ConvertFrom-Json).value | ConvertTo-Json -Depth 99
-        $incidents
+        If ($response.StatusCode -eq 200){
+            $incidents =  ($response | ConvertFrom-Json).value | ConvertTo-Json -Depth 99
+            $incidents
+        }
+        elseif($response.StatusCode -eq 429){
+            Write-Error $Error[0]
+        }
     }
-    Catch{
-        Write-Error $Error[0]
-    }
+    Catch{Write-Error $Error[0]}
 }

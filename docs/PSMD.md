@@ -11,8 +11,8 @@ Locale: en-US
 Microsoft 365 Defender PowerShell Module
 
 ## PSMD Cmdlets
-### [Get-HelloWorld](Get-HelloWorld.md)
-Short description
+### [Get-MDEDevice](Get-MDEDevice.md)
+Get-MDEDevice
 
 ### [Get-MDIncident](Get-MDIncident.md)
 Get-MDIncidents

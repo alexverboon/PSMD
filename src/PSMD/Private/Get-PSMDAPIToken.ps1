@@ -14,9 +14,17 @@
 #>
 Function Get-PSMDAPIToken{
     [CmdletBinding()]
-    param ()
+    param (
+        # API
+        [Parameter(Mandatory=$false,ParameterSetName='All')]
+        [ValidateNotNullOrEmpty()]
+        [ValidateSet('MD','MDE','MDO','MDI','MDCA')]
+        [String]$API
+    )
 
     Try{
+
+
         $ConfigFileDir =  [IO.Directory]::GetParent($PSScriptRoot)
         $PSMDConfigFile = "$ConfigFileDir\" +  "PSMDConfig.json"
         If (Test-Path -Path $PSMDConfigFile -PathType Leaf){
@@ -30,7 +38,27 @@ Function Get-PSMDAPIToken{
             Break
         }
 
-        $resourceAppIdUri = 'https://api.security.microsoft.com'
+        switch ($API){
+            'MD'{
+                $resourceAppIdUri = 'https://api.security.microsoft.com'
+            }
+            'MDE'{
+                $resourceAppIdUri = 'https://api.securitycenter.microsoft.com'
+            }
+            'MDO'{
+                $resourceAppIdUri = 'notdefined'
+            }
+            'MDI'{
+                $resourceAppIdUri = 'notdefined'
+            }
+            "MDCA"{
+                $resourceAppIdUri = 'notdefined'
+            }
+            Default {
+                $resourceAppIdUri = 'https://api.security.microsoft.com'
+            }
+        }
+
         $oAuthUri = "https://login.windows.net/$tenantId/oauth2/token"
         $authBody = [Ordered] @{
             resource      = $resourceAppIdUri
