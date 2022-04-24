@@ -3,7 +3,6 @@
 
 Function Get-Token{
 
-# If no configfile is defined we use a defined lcoation .\PoshMTPconfig.json
 $ConfigFileDir =  [IO.Directory]::GetParent($PSScriptRoot)
 $PSMDConfigFile = "$ConfigFileDir\" +  "PSMDConfig.json"
 Write-host "PSMD ConfigFile: $PSMDConfigFile"

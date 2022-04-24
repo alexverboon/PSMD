@@ -29,7 +29,7 @@ Get-MDIncidents
 ## PARAMETERS
 
 ### -Hours
-Days
+Number of hours
 
 ```yaml
 Type: Int32

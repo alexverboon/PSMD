@@ -1,4 +1,4 @@
-﻿---
+---
 Module Name: PSMD
 Module Guid: f5482e01-8620-4f8b-a8d8-f697d0d2af99
 Download Help Link: NA

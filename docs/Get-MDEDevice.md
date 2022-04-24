@@ -12,8 +12,20 @@ Get-MDEDevice
 
 ## SYNTAX
 
+### DeviceName
 ```
-Get-MDEDevice [[-DeviceValue] <String>] [[-HealthStatus] <String>] [[-token] <Object>] [<CommonParameters>]
+Get-MDEDevice -DeviceName <String> [-token <Object>] [<CommonParameters>]
+```
+
+### DeviceID
+```
+Get-MDEDevice -DeviceID <String> [-token <Object>] [<CommonParameters>]
+```
+
+### All
+```
+Get-MDEDevice [-All] [-HealthStatus <String>] [-RiskScore <String>] [-ExposureLevel <String>]
+ [-DeviceValue <String>] [-onboardingStatus <String>] [-token <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -23,22 +35,68 @@ Retrieve Microsoft Defender for Endpoint device information
 
 ### EXAMPLE 1
 ```
-Get-MDEDevice
+Get-MDEDevice -All
 ```
+
+List all devices in Microsoft Defender for endpoint
+
+### EXAMPLE 2
+```
+Get-MDEDevice -DeviceName testmachine38
+```
+
+Retrieve details for the specified device
+
+### EXAMPLE 3
+```
+Get-MDEDevice -RiskScore High
+```
+
+Retrieve all devices with a high risk score
 
 ## PARAMETERS
 
-### -DeviceValue
-Device Value
+### -DeviceName
+Device ComputerDNSName
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: DeviceName
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DeviceID
+Microsoft Defender for Endpoint unique device ID
+
+```yaml
+Type: String
+Parameter Sets: DeviceID
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -All
+List all devices
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: All
 Aliases:
 
 Required: False
-Position: 1
-Default value: None
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -48,11 +106,71 @@ Health Status
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: All
 Aliases:
 
 Required: False
-Position: 2
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -RiskScore
+Device RiskScore
+
+```yaml
+Type: String
+Parameter Sets: All
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ExposureLevel
+The device exposure level
+
+```yaml
+Type: String
+Parameter Sets: All
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DeviceValue
+Device Value
+
+```yaml
+Type: String
+Parameter Sets: All
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -onboardingStatus
+Device Onboarding status
+
+```yaml
+Type: String
+Parameter Sets: All
+Aliases:
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -67,7 +185,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 3
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

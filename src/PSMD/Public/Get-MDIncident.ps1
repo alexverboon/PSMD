@@ -5,8 +5,8 @@
     Retrieve Microsoft 365 Defender Incidents
 .EXAMPLE
     Get-MDIncidents
-.PARAMETER Days
-    Number of Days
+.PARAMETER Hours
+    Number of hours
 .PARAMETER Severity
     Severity of the Incident
 .PARAMETER Token
@@ -21,7 +21,7 @@
 Function Get-MDIncident{
     [CmdletBinding()]
     Param(
-        # Days
+        # Hours
         [Parameter(Mandatory=$false)]
         [ValidateSet('4','12', '24', '48','72','168','720')]
         [int]$Hours,

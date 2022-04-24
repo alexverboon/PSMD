@@ -13,7 +13,9 @@
             Break
         }
 
-        $resourceAppIdUri = 'https://api.security.microsoft.com'
+        #$resourceAppIdUri = 'https://api.security.microsoft.com'
+        $resourceAppIdUri = "https://api.securitycenter.microsoft.com"
+
         $oAuthUri = "https://login.windows.net/$tenantId/oauth2/token"
         $authBody = [Ordered] @{
             resource      = $resourceAppIdUri
@@ -27,7 +29,14 @@
         #Out-File -FilePath "./Latest-token.txt" -InputObject $token
         #return $token
 
-             $url = "https://api.security.microsoft.com/api/incidents?$filter=lastUpdateTime+ge+$dateTime"
+             ##$url = "https://api.security.microsoft.com/api/incidents?$filter=lastUpdateTime+ge+$dateTime"
+             # HTTP GET  https://api.securitycenter.microsoft.com/api/machines?$filter=startswith(computerDnsName,'mymachine')
+
+
+             $url = "https://api.securitycenter.microsoft.com/api/machines?`$filter=startswith(computerDnsName,'clientdlp1')"
+
+             #$url = "https://api.securitycenter.microsoft.com/api/machines?$filter=healthStatus+ne+'Inactive'&$top=100"
+
 
         # Set the webrequest headers
         $headers = @{
@@ -39,8 +48,10 @@
         # Send the request and get the results.
         $response = Invoke-WebRequest -Method Get -Uri $url -Headers $headers -ErrorAction Stop
 
+        #$response2 = Invoke-RestMethod -Method Get -Uri $url -Headers $headers -ErrorAction Stop
+
         # Extract the incidents from the results.
-        $incidents =  ($response | ConvertFrom-Json).value | ConvertTo-Json -Depth 99
-        $incidents
+        #$incidents =  ($response | ConvertFrom-Json).value | ConvertTo-Json -Depth 99
+        #$incidents
 
 

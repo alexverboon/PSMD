@@ -3,8 +3,6 @@
     Get-PSMDAPIToken
 .DESCRIPTION
     This script gets the app context token
-.EXAMPLE
-
 .OUTPUTS
     API token
 .NOTES
@@ -23,8 +21,6 @@ Function Get-PSMDAPIToken{
     )
 
     Try{
-
-
         $ConfigFileDir =  [IO.Directory]::GetParent($PSScriptRoot)
         $PSMDConfigFile = "$ConfigFileDir\" +  "PSMDConfig.json"
         If (Test-Path -Path $PSMDConfigFile -PathType Leaf){
@@ -66,7 +62,6 @@ Function Get-PSMDAPIToken{
             client_secret = $appSecret
             grant_type    = 'client_credentials'
         }
-
         $authResponse = Invoke-RestMethod -Method Post -Uri $oAuthUri -Body $authBody -ErrorAction Stop
         $token = $authResponse.access_token
         return $token
