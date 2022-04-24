@@ -150,7 +150,7 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 
 ## OUTPUTS
 
-### Microsoft Defender for Endpoint device information
+### Microsoft Defender for Endpoint Software Inventory information
 ## NOTES
 
 ## RELATED LINKS

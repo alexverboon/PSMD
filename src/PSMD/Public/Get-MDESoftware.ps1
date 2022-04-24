@@ -34,7 +34,7 @@
 .PARAMETER Token
     Token to use for authentication
 .OUTPUTS
-    Microsoft Defender for Endpoint device information
+    Microsoft Defender for Endpoint Software Inventory information
 .NOTES
 
 .COMPONENT
