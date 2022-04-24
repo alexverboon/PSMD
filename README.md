@@ -17,7 +17,7 @@ This module is a collection of easy-to-use cmdlets and functions designed to mak
 
 This PowerShell module is **stil in development**, as soon as we have a reasonable amount of cmdlets, the module will be published to the PowerShell Gallery.
 
-Here's the [to do list](./TODO.md)
+Here's the [to do list](./to_do.md)
 
 ---
 
