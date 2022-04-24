@@ -14,6 +14,9 @@ Microsoft 365 Defender PowerShell Module
 ### [Get-MDEDevice](Get-MDEDevice.md)
 Get-MDEDevice
 
+### [Get-MDESoftware](Get-MDESoftware.md)
+Get-MDESoftware
+
 ### [Get-MDIncident](Get-MDIncident.md)
 Get-MDIncidents
 
