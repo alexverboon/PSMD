@@ -4,26 +4,25 @@ For the upcoming release, the idea is to primarely focus on **Get-** cmdlets tha
 
 ## Domain
 
-Get-MDEDomainStats
-Get-MDEDomainDevice
-Get-MDEDomainAlert
+- Get-MDEDomainStats
+- Get-MDEDomainDevice
+- Get-MDEDomainAlert
 
 ## Files
 
-Get-MDEFileStats
-Get-MDEFileInfo
-Get-MDEFileDevice
-Get-MDEFileAlert
+- Get-MDEFileStats
+- Get-MDEFileInfo
+- Get-MDEFileDevice
+- Get-MDEFileAlert
 
 ## Indicators
 
-Get-MDEIndicator
+- Get-MDEIndicator
 
 ## IP Addresses
 
-Get-MDEIPStats
+- Get-MDEIPStats
 
 ## Vulnerabilities
-
 
 ## Recommendations
